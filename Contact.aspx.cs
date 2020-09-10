@@ -91,36 +91,23 @@ public partial class Contact : System.Web.UI.Page
         }
         else
         {
-            if (!isValidName && isValidMobile && isValidEmail)
-                lblErrorMessage.Text = "Syntax of FullName is'not correct";
-            else if (!isValidName && !isValidMobile && isValidEmail)
+            string strNameMessage = "";
+            string strMobileMessage = "";
+            string strEmailMessage = "";
+            if (!isValidName)
             {
-                lblErrorMessage.Text = "Syntax of FullName and Mobile are'not correct";
+                strNameMessage = "FullName,";
             }
-            else if (!isValidName && isValidMobile && !isValidEmail)
+            if (!isValidMobile)
             {
-                lblErrorMessage.Text = "Syntax of FullName and Email are'not correct";
+                strMobileMessage = "Mobile,";
             }
-            else if (!isValidName && !isValidMobile && !isValidEmail)
+            if (!isValidEmail)
             {
-                lblErrorMessage.Text = "Syntax of FullName and Mobile and Email  are'not correct";
+                strEmailMessage = "Email,";
             }
-            else if (isValidName && isValidMobile && !isValidEmail)
-            {
-                lblErrorMessage.Text = "Syntax of  Email is'not correct";
-            }
-            else if (isValidName && !isValidMobile && !isValidEmail)
-            {
-                lblErrorMessage.Text = "Syntax of Mobile and  Email are'not correct";
-            }
-            else if (isValidName && !isValidMobile && isValidEmail)
-            {
-                lblErrorMessage.Text = "Syntax of Mobile is'not correct";
-            }
-            else if (!isValidName && !isValidMobile && !isValidEmail)
-            {
-                lblErrorMessage.Text = "Syntax of Mobile and Email are'not correct";
-            }
+            lblErrorMessage.Text =  ("Syntax  error in  the " + strNameMessage + strMobileMessage + strEmailMessage);
+
         }
 
         
